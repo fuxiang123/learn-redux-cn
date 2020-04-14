@@ -11,6 +11,13 @@ function Counter(){
         return unsubsrcibe();
     },[]);
 
+    const add = () => {
+        store.dispatch({type:'add'})
+    };
+
+    const minus = () => {
+        store.dispatch({type:'minus'})
+    };
     return (
         <div style={styles.outer}>
             <div>{'当前的数字为：'+num}</div>
@@ -18,14 +25,6 @@ function Counter(){
             <button title={'-'} onClick={minus} style={styles.button}>-</button>
         </div>
     )
-}
-
-function add(){
-    store.dispatch({type:'add'})
-}
-
-function minus(){
-    store.dispatch({type:'minus'})
 }
 
 const styles = {
@@ -45,6 +44,6 @@ const styles = {
         textAlign:'center',
         borderRadius: '25px'
     }
-}
+};
 
 export default Counter;

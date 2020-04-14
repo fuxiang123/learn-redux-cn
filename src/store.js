@@ -1,6 +1,9 @@
-import {createStore} from 'myRedux'
+import {createStore,applyMiddleware} from './myRedux'
+import logMiddleware from './logMiddlewares'
 
-const initState={number:0}
+const middleware = applyMiddleware(...logMiddleware)
+
+const initState={number:0};
 
 function reducer(state,action){
   switch(action.type){
@@ -13,6 +16,6 @@ function reducer(state,action){
   }
 }
 
-const store=createStore(reducer,initState)
+const store=createStore(reducer,initState,middleware)
 
 export default store;

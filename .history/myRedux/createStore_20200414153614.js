@@ -23,11 +23,8 @@ function createStore(reducer, initState, enhancer) {
   }
 
   function subscribe(listener) {
-    //将listener（即回调函数）存入currentListener数组里面
     currentListener.push(listener);
-    //返回一个退订函数
     return function unsubscribe() {
-      //从currentListener数组里面找到该函数，将其删除即可
       const index = currentListener.indexOf(listener);
       currentListener.splice(index, 0);
     };
